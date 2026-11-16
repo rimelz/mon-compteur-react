@@ -1,0 +1,342 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  color: var(--text);
+  background: #f8f9fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    background: #0f1014;
+  }
+}
+
+body {
+  margin: 0;
+  background: #f8f9fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f1014;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ========================================
+   APPLICATION COMPTEUR - Style du PDF
+   ======================================== */
+
+.app-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+/* Header - Basé sur Figure 3 du PDF */
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: var(--bg);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: #2563eb;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.header small {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Counter Card - Figure 3a et 3b du PDF */
+.counter-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+/* Grand chiffre central - 0, 15, -4, etc. */
+.counter-display {
+  font-size: 72px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: var(--mono);
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -2px;
+}
+
+.counter-display.positive {
+  color: #10b981;
+}
+
+.counter-display.negative {
+  color: #ef4444;
+}
+
+.counter-display.zero {
+  color: #64748b;
+}
+
+/* Boutons -1, Reset, +1 */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--sans);
+  color: white;
+  min-width: 80px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-inc {
+  background: #3b82f6;
+}
+
+.btn-inc:hover {
+  background: #2563eb;
+}
+
+.btn-dec {
+  background: #ef4444;
+}
+
+.btn-dec:hover {
+  background: #dc2626;
+}
+
+.btn-reset {
+  background: #64748b;
+}
+
+.btn-reset:hover {
+  background: #475569;
+}
+
+/* Pas d'incrémentation - Menu déroulant */
+.step-control {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .step-control {
+    background: #1e293b;
+  }
+}
+
+.step-control label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.step-control select {
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+.step-control select:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Carte d'historique - Zone grise avec infos */
+.history-card {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #f1f5f9;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .history-card {
+    background: #1e293b;
+    border-left-color: #60a5fa;
+  }
+}
+
+.history-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.history-card p:first-child {
+  margin-top: 0;
+}
+
+.history-card p:last-child {
+  margin-bottom: 0;
+}
+
+.history-card strong {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+/* Icônes emoji */
+.history-card p strong::before {
+  margin-right: 6px;
+}
+
+.history-card p:nth-child(1) strong::before {
+  content: '🎬 ';
+}
+
+.history-card p:nth-child(2) strong::before {
+  content: '🔢 ';
+}
+
+.history-card p:nth-child(3) strong::before {
+  content: '📊 ';
+}
+
+/* Chronomètre */
+.timer-box {
+  background: var(--accent-bg);
+  border: 2px solid var(--accent-border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.timer-box span {
+  font-size: 15px;
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.timer-box strong {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 18px;
+}
+
+.timer-box .btn {
+  padding: 6px 16px;
+  font-size: 14px;
+  min-width: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .counter-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .counter-display {
+    font-size: 56px;
+  }
+
+  .btn-group {
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 70px;
+  }
+}

@@ -1,0 +1,159 @@
+═══════════════════════════════════════════════════════════════
+   ✅ VALIDATION RAPIDE - SÉANCE 5 REACT - CHECKLIST ENSEIGNANT
+═══════════════════════════════════════════════════════════════
+
+📍 URL : http://localhost:5173/
+
+───────────────────────────────────────────────────────────────
+1️⃣  HEADER
+───────────────────────────────────────────────────────────────
+☐ Titre "Mon Super Compteur React" affiché
+☐ Sous-titre "Maitrise des Hooks..." affiché
+☐ Date du jour en français affichée
+
+───────────────────────────────────────────────────────────────
+2️⃣  COMPTEUR DE BASE (useState)
+───────────────────────────────────────────────────────────────
+☐ Compteur démarre à 0
+☐ Bouton +1 incrémente
+☐ Bouton -1 décrémente
+☐ Bouton Reset remet à 0
+☐ Aucun rechargement de page
+
+───────────────────────────────────────────────────────────────
+3️⃣  FONCTIONNALITÉS AVANCÉES
+───────────────────────────────────────────────────────────────
+☐ Menu déroulant pas (1,2,5,10)
+☐ Boutons affichent +{step} et -{step}
+☐ Couleur : vert si positif, rouge si négatif
+☐ "Dernière action" s'affiche
+☐ "Total des clics" s'incrémente
+☐ "Historique" affiche les actions
+
+───────────────────────────────────────────────────────────────
+4️⃣  PERSISTANCE localStorage (useEffect)
+───────────────────────────────────────────────────────────────
+☐ Incrémenter à 25
+☐ Titre onglet = "Compteur : 25"
+☐ F12 → Application → Local Storage :
+   ☐ Clé "mon_compteur_valeur" = "25"
+   ☐ Clé "mon_compteur_historique" existe
+☐ Refresh (F5) → compteur reste à 25
+☐ Refresh (F5) → historique intact
+
+───────────────────────────────────────────────────────────────
+5️⃣  DÉFI 1 : LIMITES ±50 ⭐
+───────────────────────────────────────────────────────────────
+☐ Sélectionner pas 10
+☐ Incrémenter jusqu'à 50
+☐ Essayer +10 → Alerte "Seuil maximal de 50 atteint !"
+☐ Reset
+☐ Décrémenter jusqu'à -50
+☐ Essayer -10 → Alerte "Seuil minimal de -50 atteint !"
+
+───────────────────────────────────────────────────────────────
+6️⃣  DÉFI 2 : HISTORIQUE PERSIST ⭐⭐
+───────────────────────────────────────────────────────────────
+☐ Reset compteur
+☐ Sélectionner pas 5
+☐ Cliquer +5 (3 fois)
+☐ Historique affiche "+5, +5, +5"
+☐ F12 → Local Storage → "mon_compteur_historique"
+☐ Refresh (F5)
+☐ Historique toujours "+5, +5, +5"
+
+───────────────────────────────────────────────────────────────
+7️⃣  DÉFI 3 : CONTRÔLE CLAVIER ⭐⭐⭐
+───────────────────────────────────────────────────────────────
+☐ Reset compteur
+☐ Appuyer Flèche Haut (↑) 5 fois → compteur = 5
+☐ Appuyer Flèche Bas (↓) 2 fois → compteur = 3
+☐ Historique contient les actions clavier
+☐ Sélectionner pas 10
+☐ Flèche Haut (↑) → compteur += 10
+☐ Tester avec limites (48 + ↑ avec pas 5 → alerte)
+
+───────────────────────────────────────────────────────────────
+8️⃣  CHRONOMÈTRE (useEffect + cleanup)
+───────────────────────────────────────────────────────────────
+☐ Chronomètre visible en bas
+☐ S'incrémente chaque seconde
+☐ Bouton "Pause" → le timer s'arrête
+☐ Bouton "Reprendre" → le timer repart
+☐ Bouton "Masquer le Chronomètre" → disparaît
+☐ Attendre 5 secondes
+☐ Console (F12) : AUCUNE erreur, AUCUN warning
+☐ Bouton "Afficher le Chronomètre" → réapparaît à 0s
+
+───────────────────────────────────────────────────────────────
+9️⃣  TEST CONSOLE (OBLIGATOIRE)
+───────────────────────────────────────────────────────────────
+☐ Ouvrir F12 → Console
+☐ Effectuer toutes les actions ci-dessus
+☐ AUCUNE erreur rouge
+☐ AUCUN warning jaune de fuite mémoire
+☐ AUCUN message "Can't perform a React state update..."
+
+───────────────────────────────────────────────────────────────
+🔟  TEST BOUT EN BOUT (SCÉNARIO RÉEL)
+───────────────────────────────────────────────────────────────
+1. Ouvrir l'application
+2. Sélectionner pas 2
+3. Cliquer +2 (10 fois) → 20
+4. Flèche Bas (↓) du clavier (3 fois) → 14
+5. Refresh (F5)
+6. Vérifier : compteur = 14, historique intact
+7. Reset
+8. Sélectionner pas 10
+9. Essayer d'aller à 60 → bloqué à 50 avec alerte
+10. Masquer chronomètre
+11. Attendre 3 secondes
+12. Réafficher chronomètre
+☐ TOUT fonctionne sans erreur
+
+═══════════════════════════════════════════════════════════════
+   ✅ VALIDATION FINALE
+═══════════════════════════════════════════════════════════════
+
+☐ TOUS les tests passent
+☐ Console SANS erreur
+☐ Application fluide et réactive
+☐ Touches clavier fonctionnent
+☐ Historique survit à F5
+☐ Pas de fuite mémoire
+
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   ✅ SÉANCE 5 VALIDÉE À 100%                                │
+│                                                             │
+│   Signature enseignant : _____________________             │
+│                                                             │
+│   Date : _____________                                      │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+   📊 RÉSUMÉ DES COMPÉTENCES ACQUISES
+═══════════════════════════════════════════════════════════════
+
+✅ Initialisation projet Vite
+✅ Composants fonctionnels JSX
+✅ Props et déstructuration
+✅ Hook useState (état réactif)
+✅ Immutabilité tableaux ([...arr, item])
+✅ Hook useEffect (effets de bord)
+✅ Tableau de dépendances useEffect
+✅ Fonction cleanup (prévention fuites)
+✅ localStorage API (persistance)
+✅ JSON.stringify / JSON.parse
+✅ Event listeners (window.addEventListener)
+✅ Cleanup listeners (removeEventListener)
+✅ Conditions et validations
+✅ HMR (Hot Module Replacement)
+✅ Debugging console navigateur
+
+═══════════════════════════════════════════════════════════════
+
+Dr. Abdelweheb GUEDDES
+École Polytechnique de Sousse - 2026-2027
+MERN Stack - Séance 5
